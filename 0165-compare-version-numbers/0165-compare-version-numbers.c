@@ -2,7 +2,8 @@ int compareVersion(char* version1, char* version2) {
     int i = 0, j = 0;
 
     while (version1[i] != '\0' || version2[j] != '\0') {
-        long num1 = 0, num2 = 0;
+        long num1 = 0;
+        long num2 = 0;
 
         // Parse revision from version1
         while (version1[i] != '\0' && version1[i] != '.') {
@@ -16,11 +17,11 @@ int compareVersion(char* version1, char* version2) {
             j++;
         }
 
-        // Compare revisions
+        // Compare current revisions
         if (num1 < num2) return -1;
         if (num1 > num2) return 1;
 
-        // Skip dots
+        // Skip the dot
         if (version1[i] == '.') i++;
         if (version2[j] == '.') j++;
     }
