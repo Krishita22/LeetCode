@@ -17,11 +17,10 @@ int compareVersion(char* version1, char* version2) {
             j++;
         }
 
-        // Compare current revisions
         if (num1 < num2) return -1;
         if (num1 > num2) return 1;
 
-        // Skip the dot
+        // Skip dots
         if (version1[i] == '.') i++;
         if (version2[j] == '.') j++;
     }
